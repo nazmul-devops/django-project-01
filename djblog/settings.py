@@ -30,7 +30,14 @@ ALLOWED_HOSTS = ["*"]
 CORS_ALLOW_ALL_ORIGINS = False
 CSRF_TRUSTED_ORIGINS = ["http://localhost", "http://0.0.0.0:5501", "http://127.0.0.1:5501"]
 
-
+CUSTOM_APPS = [
+    "dbpost.apps.DbpostConfig",
+    "dbauth.apps.DbauthConfig",
+    "dbcore.apps.DbcoreConfig",
+]
+THIRD_PARTY_APPS = [
+    'drf_yasg',
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,10 +49,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "dbpost.apps.DbpostConfig",
-    "dbauth.apps.DbauthConfig",
-    "dbcore.apps.DbcoreConfig",
-]
+] + THIRD_PARTY_APPS + CUSTOM_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

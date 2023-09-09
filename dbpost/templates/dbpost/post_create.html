@@ -1,0 +1,50 @@
+{% extends 'dbcore/base.html' %}
+{% load static %}
+{% block title %}
+	ABC Django Blog Post Create
+{% endblock %}
+
+{% block header %}
+    <div class="flex justify-center">
+        <h1 class="btn btn-ghost normal-case text-xl md:text-3xl lg:text-3xl my-8">ABC Django Blog Post Create</h1>
+    </div>
+    <div class="flex justify-center my-8">
+          <a href="{% url 'dbpost:post_list' %}" class="btn btn-info">Go To Post Lists</a>
+      </div>
+{% endblock %}
+
+{% block post %}
+   <!-- add to cart form  -->
+      <section class="container m-auto flex justify-center h-[60vh]">
+        <div class="form-control w-full max-w-xs">
+            <label class="label">
+                <span class="label-text font-bold text-3xl mt-8">Create Post</span>
+              </label>
+            <form method="post">
+                {% csrf_token %}
+              <label class="label">
+                <span class="label-text font-semibold">Post Title:</span>
+              </label>
+              <input
+                id="productName"
+                type="text"
+                placeholder="Post Title"
+                class="input input-bordered input-accent w-full max-w-xs"
+              />
+              <br />
+              <label class="label">
+                <span class="label-text font-semibold">User Id:</span>
+              </label>
+              <input
+                id="productPrice"
+                type="text"
+                placeholder="User Id"
+                class="input input-bordered input-accent w-full max-w-xs"
+              />
+              <br />
+              <input type="submit" value="Create Post" class="btn btn-success my-8" />
+        </form>
+        </div>
+      </section>
+
+{% endblock %}
